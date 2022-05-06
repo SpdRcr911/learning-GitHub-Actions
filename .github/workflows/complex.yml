@@ -1,0 +1,20 @@
+on: push
+
+jobs:
+  ubuntu:
+    runs-on: ubuntu-latest
+    steps:
+    - run: date
+  windows:
+    runs-on: windows-latest
+    steps:
+    - run: date
+  macos:
+    runs-on: macos-latest
+    steps:
+    - run: date
+  needs:
+    runs-on: windows-latest
+    needs: [job1,job2,job3]
+    steps:
+    - run: date
