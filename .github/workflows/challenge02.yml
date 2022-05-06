@@ -9,7 +9,7 @@ jobs:
     steps:
     - name: Checout Code
       uses: actions/checkout@v2.4.2
-    - name: Upload the rrtifact
+    - name: Upload the artifact
       uses: actions/upload-artifact@v3.0.0
       with:
         name: ${{ env.ARTIFACT_NAME }}
