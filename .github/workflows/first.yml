@@ -1,4 +1,4 @@
-name: first
+name: echo date
 
 on: push
 
@@ -7,15 +7,24 @@ jobs:
     name: first job
     runs-on: ubuntu-latest
     steps:
-    - name: Step one
-      uses: actions/checkout@v2
-    - name: Step two
-      run: env | sort
+    - name: echo date
+      run: date +"%m/%d/%Y %H:%M:%S"
   job2:
-    name: first job
+    name: second job
     runs-on: windows-latest
     steps:
-    - name: Step one
-      uses: actions/checkout@v2
-    - name: Step two
+    - name: echo date
+      run: echo %date% %time%
+  job3:
+    name: third job
+    runs-on: macos-latest
+    steps:
+    - name: echo date
+      run: date +"%m/%d/%Y %H:%M:%S"
+  job4:
+    name: fourth job
+    runs-on: windows-latest
+    needs: [job1,job2,job3]
+    steps:
+    - name: echo date
       run: "Get-ChildItem Env: | Sort-Object Name"
