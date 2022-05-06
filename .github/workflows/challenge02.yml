@@ -1,0 +1,17 @@
+on: push
+
+jobs:
+  create_artifacts:
+    runs-on: ubuntu-latest
+    env:
+      ARTIFACT_NAME: myArtifact
+    steps:
+    - uses: actions/checkout@v2.4.2
+    - uses: actions/upload-artifact@v3.0.0
+      with:
+        name: ${{ env.ARTIFACT_NAME }}.yml
+        path: hello.yml
+      
+
+
+
